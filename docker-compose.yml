@@ -1,0 +1,45 @@
+version: '3.8'
+
+networks:
+  aegis_quantum_net:
+    driver: bridge
+
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: aegis_ultra_backend
+    ports:
+      - "8000:8000"
+    environment:
+      - REDIS_URL=redis://redis_cache:6379/0
+      - ENVIRONMENT=production
+      - LOG_LEVEL=info
+    depends_on:
+      redis_cache:
+        condition: service_healthy
+    networks:
+      - aegis_quantum_net
+    restart: always
+    deploy:
+      resources:
+        limits:
+          cpus: '2.0'
+          memory: 2048M
+
+  redis_cache:
+    image: redis:7.2-alpine
+    container_name: aegis_redis_cache
+    command: redis-server --save 60 1 --loglevel notice --maxmemory 512mb --maxmemory-policy allkeys-lru
+    ports:
+      - "6379:6379"
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - aegis_quantum_net
+    restart: always
+    
