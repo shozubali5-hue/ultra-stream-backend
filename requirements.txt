@@ -1,61 +1,6 @@
-# ==================================================================
-# ⚡ ULTIMATE QUANTUM AEGIS MASTER DEPENDENCIES
-# Python 3.12+ | Production-Grade | High-Performance Streaming Stack
-# ==================================================================
-
-# ----------------------------------------
-# 1. Core Framework & ASGI Engine (C-Speed)
-# ----------------------------------------
-fastapi>=0.109.0
-uvicorn[standard]>=0.27.0          # Rust/C-speed (uvloop + httptools)
-gunicorn>=21.2.0                   # Multi-process production manager
-
-# ----------------------------------------
-# 2. Network Protocols & WebRTC Engine
-# ----------------------------------------
-httpx>=0.26.0                      # Async HTTP/2 client
-aiohttp>=3.9.1                     # Async HTTP client/server fallback
-websockets>=12.0                   # Low-latency WebSocket protocol
-aiortc>=1.6.0                      # WebRTC real-time audio/video streaming
-
-# ----------------------------------------
-# 3. Data Validation & High-Speed Parsing
-# ----------------------------------------
-pydantic>=2.5.3                    # Rust-backed data validation
-pydantic-settings>=2.2.1           # Advanced environment settings
-orjson>=3.9.10                     # Lightning-fast JSON engine
-numpy>=1.26.3                      # Math & tensor support for AI models
-
-# ----------------------------------------
-# 4. Resilience, Circuit-Breakers & Failover
-# ----------------------------------------
-tenacity>=8.2.3                    # Exponential backoff & AI failover
-backoff>=2.2.1                     # Multi-tier retry handler
-
-# ----------------------------------------
-# 5. Zero-Latency Memory & Multi-Layer Cache
-# ----------------------------------------
-redis>=5.0.1                       # Async Redis client
-redis-om>=0.2.1                    # Redis Object Mapper
-async-lru>=2.0.4                   # In-memory LRU acceleration
-
-# ----------------------------------------
-# 6. Database Async Drivers
-# ----------------------------------------
-motor>=3.3.2                       # Async MongoDB client (L2 Subtitle Cache)
-asyncpg>=0.29.0                    # Async PostgreSQL client
-aiosqlite>=0.19.0                  # Lightweight SQLite storage
-aiofiles>=23.2.1                   # Non-blocking async file I/O
-
-# ----------------------------------------
-# 7. Enterprise Observability & Security
-# ----------------------------------------
-prometheus-client>=0.19.0          # System metrics collection
-prometheus-fastapi-instrumentator>=7.0.0
-python-json-logger>=2.0.7          # Structured log outputs
-opentelemetry-api>=1.23.0          # Distributed tracing API
-opentelemetry-sdk>=1.23.0          # Distributed tracing SDK
-opentelemetry-instrumentation-fastapi>=0.44b0
-cryptography>=41.0.7               # Token encryption & AES security
-python-jose[cryptography]>=3.3.0   # JWT security tokens
-python-dotenv>=1.0.0               # Environment variable management
+fastapi==0.115.6
+uvicorn[standard]==0.34.0
+pydantic==2.10.4
+pydantic-settings==2.6.1
+httpx==0.28.1
+python-multipart==0.0.20
